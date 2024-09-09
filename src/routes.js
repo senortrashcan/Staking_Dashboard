@@ -31,7 +31,7 @@ var routes = [
     rtlName: "لوحة القيادة",
     icon: "tim-icons icon-chart-pie-36",
     component: <Dashboard />,
-    layout: "/admin",
+    layout: "/*",
   },
   {
     path: "/icons",

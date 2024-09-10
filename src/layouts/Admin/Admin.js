@@ -80,7 +80,7 @@ function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/") {
+      if (prop.layout === "/admin") {
         return (
           <Route path={prop.path} element={prop.component} key={key} exact />
         );

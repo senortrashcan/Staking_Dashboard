@@ -97,7 +97,15 @@ function AdminNavbar(props) {
             <span className="navbar-toggler-bar navbar-kebab" />
           </NavbarToggler>
           <Collapse navbar isOpen={collapseOpen}>
-            <Nav className="ml-auto" navbar>              
+            <Nav className="ml-auto" navbar>
+              <InputGroup className="search-bar">
+                <Button color="link" onClick={toggleModalSearch}>
+                  <i className="tim-icons icon-zoom-split" />
+                  <span className="d-lg-none d-md-block">Search</span>
+                </Button>
+              </InputGroup>
+              <UncontrolledDropdown nav>
+              </UncontrolledDropdown>
               <li className="separator d-lg-none" />
             </Nav>
           </Collapse>

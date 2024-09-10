@@ -34,10 +34,10 @@ var routes = [
     layout: "",
   },
   {
-    path: "/icons",
-    name: "Icons",
+    path: "/stake",
+    name: "Stake",
     rtlName: "الرموز",
-    icon: "tim-icons icon-atom",
+    icon: "tim-icons icon-money-coins",
     component: <Icons />,
     layout: "",
   },

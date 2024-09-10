@@ -100,7 +100,7 @@ function AdminNavbar(props) {
             <Nav className="ml-auto" navbar>
               <InputGroup className="search-bar">
                 <Button color="link" onClick={toggleModalSearch}>
-                  <i className="tim-icons icon-zoom-split" />
+                  <i className="tim-icons" />
                   <span className="d-lg-none d-md-block">Search</span>
                 </Button>
               </InputGroup>

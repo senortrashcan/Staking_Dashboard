@@ -140,8 +140,7 @@ function Sidebar(props) {
                 );
               })}
               <li className="active-pro">
-                <ReactstrapNavLink>
-                  onClick={ () => window.open("https://liquified.capital", "_blank") }
+                <ReactstrapNavLink href="https://liquifiedcapital.com/documentation">
                   <i className="tim-icons icon-spaceship" />
                   <p>DOCS</p>
                 </ReactstrapNavLink>

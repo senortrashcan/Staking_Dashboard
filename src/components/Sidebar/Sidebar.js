@@ -140,7 +140,7 @@ function Sidebar(props) {
                 );
               })}
               <li className="active-pro">
-                <ReactstrapNavLink href="https://liquifiedcapital.com/documentation">
+                <ReactstrapNavLink href="https://liquifiedcapital.com/documentation" target="_blank">
                   <i className="tim-icons icon-book-bookmark" />
                   <p>DOCS</p>
                 </ReactstrapNavLink>

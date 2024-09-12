@@ -42,14 +42,6 @@ var routes = [
     layout: "",
   },
   {
-    path: "/map",
-    name: "Map",
-    rtlName: "خرائط",
-    icon: "tim-icons icon-pin",
-    component: <Map />,
-    layout: "/admin",
-  },
-  {
     path: "/notifications",
     name: "Notifications",
     rtlName: "إخطارات",

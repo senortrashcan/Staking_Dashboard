@@ -28,7 +28,7 @@ function Footer() {
         <Nav>
           <NavItem>
             <NavLink href="https://liquifiedcapital.com">
-              Liquified Capital
+              LiquifiedCapital.com
             </NavLink>
           </NavItem>
           <NavItem>

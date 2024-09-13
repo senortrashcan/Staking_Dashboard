@@ -20,6 +20,15 @@ import React from "react";
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
+const element = document.getElementById("Icons");
+
+// Set the parent element's display to flex
+element.parentNode.style.display = "flex";
+
+// Center the element horizontally and vertically
+element.parentNode.style.justifyContent = "center";
+element.parentNode.style.alignItems = "center";
+
 function Icons() {
   return (
     <>

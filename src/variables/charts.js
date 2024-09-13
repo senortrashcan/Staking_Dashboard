@@ -65,6 +65,61 @@ let chart1_2_options = {
     },
   },
 };
+// #########################################
+//       // TESTING API
+// #########################################
+const fetchData = async () => {
+  try {
+    const response = await fetch('https://www.validators.app/api/v1/validators/:mainnet/:account.json', {
+      headers: { 'Token': 'JhsvLa4MyL8mZQjNuBbEBJ14' }
+    });
+    const data = await response.json();
+    
+    // Assuming data is in the format of an array of values corresponding to each month
+    const newData = data.map(item => item.value); // Adjust based on actual API response
+
+    setChartData(prevData => ({
+      ...prevData,
+      datasets: [{
+        ...prevData.datasets[0],
+        data: newData
+      }]
+    }));
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
+useEffect(() => {
+  fetchData(); // Fetch data on component mount
+  const intervalId = setInterval(fetchData, 10 * 60 * 1000); // Fetch data every 10 minutes
+
+  return () => clearInterval(intervalId); // Clean up the interval on component unmount
+}, []);
+
+const data1 = (canvas) => {
+  let ctx = canvas.getContext("2d");
+
+  let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+  gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+  gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+  gradientStroke.addColorStop(0, "rgba(29,140,248,0)");
+
+  return {
+    ...chartData,
+    datasets: [{
+      ...chartData.datasets[0],
+      backgroundColor: gradientStroke
+    }]
+  };
+};
+
+return (
+  <div>
+    <Line data={data1} options={{ responsive: true }} />
+  </div>
+);
+
 
 // #########################################
 // // // used inside src/views/Dashboard.js

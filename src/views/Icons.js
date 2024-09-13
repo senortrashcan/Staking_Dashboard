@@ -28,11 +28,13 @@ function Icons() {
           <Col md="12">
             <Card>
               <CardHeader>
+                <center>
                 <h5 className="title">100 Awesome Nucleo Icons</h5>
                 <p className="category">
                   Handcrafted by our friends from{" "}
                   <a href="https://nucleoapp.com/?ref=1712">NucleoApp</a>
                 </p>
+                </center>
               </CardHeader>
               <CardBody className="all-icons">
                 <Row>
@@ -42,10 +44,12 @@ function Icons() {
                     md="3"
                     sm="4"
                   >
+                    <center>
                     <div className="font-icon-detail">
                       <i className="tim-icons icon-alert-circle-exc" />
                       <p>icon-alert-circle-exc</p>
                     </div>
+                    </center>
                   </Col>
                 </Row>
               </CardBody>

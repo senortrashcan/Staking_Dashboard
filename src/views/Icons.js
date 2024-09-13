@@ -47,28 +47,6 @@ function Icons() {
                       <p>icon-alert-circle-exc</p>
                     </div>
                   </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-align-center" />
-                      <p>icon-align-center</p>
-                    </div>
-                  </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-align-left-2" />
-                      <p>icon-align-left-2</p>
-                    </div>
-                  </Col>
                 </Row>
               </CardBody>
             </Card>

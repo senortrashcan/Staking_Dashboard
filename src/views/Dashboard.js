@@ -64,8 +64,8 @@ function Dashboard(props) {
               <CardHeader>
                 <Row>
                   <Col className="text-left" sm="6">
-                    <h5 className="card-category">Total Stake</h5>
-                    <CardTitle tag="h2">*Updates every 10 Min.</CardTitle>
+                    <h5 className="card-category">*Updates every 10 Min.</h5>
+                    <CardTitle tag="h2">Total Stake</CardTitle>
                   </Col>
                   <Col sm="6">
                     <ButtonGroup

@@ -35,7 +35,6 @@ function Icons() {
                 </p>
                 </center>
               </CardHeader>
-              <center>
               <CardBody className="all-icons">
                 <Row>
                   <Col className="font-icon-list col-xs-6 col-xs-6" lg="2" md="3" sm="4">
@@ -48,7 +47,6 @@ function Icons() {
                   </Col>
                 </Row>
               </CardBody>
-              </center>
             </Card>
           </Col>
         </Row>

@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useEffect } from "react";
 import 'assets/css/stakingkiwi.css'; // Import the CSS file
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";

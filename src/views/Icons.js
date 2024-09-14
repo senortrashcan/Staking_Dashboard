@@ -29,13 +29,13 @@ function Icons() {
             <Card>
               <CardHeader>
                 <center>
-                <h5 className="title">100 Awesome Nucleo Icons</h5>
+                <h5 className="title">Solana Staking</h5>
                 <p className="category">
-                  Handcrafted by our friends from{" "}
-                  <a href="https://nucleoapp.com/?ref=1712">NucleoApp</a>
+                  *Please note we are still in the process of integrating our own interface. Your assets are safe.
                 </p>
                 </center>
               </CardHeader>
+              <center>
               <CardBody className="all-icons">
                 <Row>
                 
@@ -49,6 +49,7 @@ function Icons() {
                   </Col>
                 </Row>
               </CardBody>
+              </center>
             </Card>
           </Col>
         </Row>

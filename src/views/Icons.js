@@ -20,6 +20,11 @@ import React from "react";
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
+const container = document.getElementById('iframe-container');
+const iframeHtml = '<iframe id="staking-kiwi-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 472px; height: 302px" title="Staking Kiwi widget" src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"></iframe>';
+
+
+
 function Icons() {
   return (
     <>
@@ -39,17 +44,8 @@ function Icons() {
                   <p className="font-icon-list col-xs-6 col-xs-6" lg="2" md="3" sm="4" align="center">
                     <div className="font-icon-detail" align="center">
                       <i className="tim-icons icon-alert-circle-exc" />
-                      <p><iframe
-          id="staking-kiwi-widget-0"
-          scrolling="no"
-          frameborder="0"
-          allowtransparency="true"
-          allowfullscreen="true"
-          class=""
-          style="position: static; visibility: visible; width: 472px; height: 302px"
-          title="Staking Kiwi widget"
-          src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"
-        ></iframe></p>
+                      
+                      <p>container.innerHTML = iframeHtml;</p>
                     </div>
                   </p>
               </CardBody>

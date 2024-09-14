@@ -16,7 +16,6 @@
 
 */
 import React from "react";
-import { SpeedInsights } from "@vercel/speed-insights/react"
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react plugin used to create charts
@@ -58,7 +57,6 @@ function Dashboard(props) {
   };
   return (
     <>
-    <SpeedInsights/>
       <div className="content">
         <Row>
           <Col xs="12">

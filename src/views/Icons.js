@@ -65,7 +65,7 @@ function Icons() {
                     allowFullScreen
                     className="staking-widget-iframe"
                     title="Staking Kiwi widget"
-                    src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"
+                    src="https://widget.staking.kiwi/?validator=&theme=dark"
                   ></iframe>
                 </div>
               </CardBody>

@@ -36,14 +36,12 @@ function Icons() {
                 </center>
               </CardHeader>
               <CardBody className="all-icons">
-                <Row>
                   <Col className="font-icon-list col-xs-6 col-xs-6" lg="2" md="3" sm="4" align="center">
                     <div className="font-icon-detail" align="center">
                       <i className="tim-icons icon-alert-circle-exc" />
                       <p>icon-alert-circle-exc</p>
                     </div>
                   </Col>
-                </Row>
               </CardBody>
             </Card>
           </Col>

@@ -27,33 +27,38 @@ const iframeHtml = '<iframe id="staking-kiwi-widget-0" scrolling="no" frameborde
 
 function Icons() {
   return (
-    <>
+    <React.Fragment>
       <div className="content">
         <Row>
           <Col md="12">
             <Card>
               <CardHeader>
-                <center>
-                <h5 className="title">Solana Staking</h5>
-                <p className="category">
-                  *Please note we are still in the process of integrating our own interface. Your assets are safe.
-                </p>
-                </center>
+                <div className="text-center"> {/* Centering text */}
+                  <h5 className="title">Solana Staking</h5>
+                  <p className="category">
+                    *Please note we are still in the process of integrating our own interface. Your assets are safe.
+                  </p>
+                </div>
               </CardHeader>
               <CardBody className="all-icons">
-                  <p className="font-icon-list col-xs-6 col-xs-6" lg="2" md="3" sm="4" align="center">
-                    <div className="font-icon-detail" align="center">
-                      <i className="tim-icons icon-alert-circle-exc" />
-                      
-                      <p>container.innerHTML = iframeHtml;</p>
-                    </div>
-                  </p>
+                {/* Inserting iframe */}
+                <iframe
+                  id="staking-kiwi-widget-0"
+                  scrolling="no"
+                  frameBorder="0"
+                  allowTransparency="true"
+                  allowFullScreen={true}
+                  className=""
+                  style={{ position: 'static', visibility: 'visible', width: '472px', height: '302px' }}
+                  title="Staking Kiwi widget"
+                  src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"
+                ></iframe>
               </CardBody>
             </Card>
           </Col>
         </Row>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 

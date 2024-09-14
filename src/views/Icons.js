@@ -41,7 +41,7 @@ function Icons() {
                     <div className="font-icon-detail" align="center">
                       <i className="tim-icons icon-alert-circle-exc" />
                       <p>icon-alert-circle-exc</p>
-                      
+                      <iframe id="staking-kiwi-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 472px; height: 302px" title="Staking Kiwi widget" src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark" ></iframe>
                     </div>
                   </Col>
                 </Row>

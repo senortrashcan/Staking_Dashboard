@@ -1,0 +1,12 @@
+.iframe-container {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    height: 100%;            /* Ensure the container takes full height */
+  }
+  
+  .staking-widget-iframe {
+    width: 472px;
+    height: 302px;
+    border: none;
+  }

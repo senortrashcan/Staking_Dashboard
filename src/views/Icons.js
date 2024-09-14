@@ -16,16 +16,31 @@
 
 */
 import React from "react";
-
+import 'assets/css/stakingkiwi.css'; // Import the CSS file
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
-const container = document.getElementById('iframe-container');
-const iframeHtml = '<iframe id="staking-kiwi-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 472px; height: 302px" title="Staking Kiwi widget" src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"></iframe>';
-
-
 
 function Icons() {
+  useEffect(() => {
+    // Create script element
+    const script = document.createElement('script');
+    script.src = "https://widget.staking.kiwi/js/widget.min.js";
+    script.async = true;
+    script.onload = () => {
+      // Script has loaded and is ready to use
+      console.log('Staking widget script loaded');
+    };
+
+    // Append script to the body
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once after initial render
+
   return (
     <React.Fragment>
       <div className="content">
@@ -33,7 +48,7 @@ function Icons() {
           <Col md="12">
             <Card>
               <CardHeader>
-                <div className="text-center"> {/* Centering text */}
+                <div className="text-center">
                   <h5 className="title">Solana Staking</h5>
                   <p className="category">
                     *Please note we are still in the process of integrating our own interface. Your assets are safe.
@@ -41,18 +56,18 @@ function Icons() {
                 </div>
               </CardHeader>
               <CardBody className="all-icons">
-                {/* Inserting iframe */}
-                <iframe
-                  id="staking-kiwi-widget-0"
-                  scrolling="no"
-                  frameBorder="0"
-                  allowTransparency="true"
-                  allowFullScreen={true}
-                  className=""
-                  style={{ position: 'static', visibility: 'visible', width: '472px', height: '302px' }}
-                  title="Staking Kiwi widget"
-                  src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"
-                ></iframe>
+                <div className="iframe-container">
+                  <iframe
+                    id="staking-kiwi-widget-0"
+                    scrolling="no"
+                    frameBorder="0"
+                    allowTransparency="true"
+                    allowFullScreen
+                    className="staking-widget-iframe"
+                    title="Staking Kiwi widget"
+                    src="https://widget.staking.kiwi/?validator=4WYZhk6CYCVEqpehJbv6w7wJUgW2nDjeVMPvsomy8mbM&theme=dark"
+                  ></iframe>
+                </div>
               </CardBody>
             </Card>
           </Col>

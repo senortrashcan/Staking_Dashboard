@@ -38,16 +38,14 @@ function Icons() {
               <center>
               <CardBody className="all-icons">
                 <Row>
-                  <center>
-                  <p className="font-icon-list col-xs-6 col-xs-6" lg="2" md="3" sm="4">
-                    <div className="font-icon-detail">
+                  <Col className="font-icon-list col-xs-6 col-xs-6" lg="2" md="3" sm="4">
+                    <div className="font-icon-detail" align="center">
                       <i className="tim-icons icon-alert-circle-exc" />
                       <p>icon-alert-circle-exc</p>
                       <iframe id="staking-kiwi-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 472px; height: 302px" title="Staking Kiwi widget" src="https://widget.staking.kiwi/?validator=&theme=dark" ></iframe>
                       <script src="https://widget.staking.kiwi/js/widget.min.js"></script>
                     </div>
-                  </p>
-                  </center>
+                  </Col>
                 </Row>
               </CardBody>
               </center>

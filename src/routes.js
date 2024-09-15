@@ -38,7 +38,7 @@ var routes = [
     path: "/solana",
     name: "Solana",
     rtlName: "الرموز",
-    icon: "Solana",
+    icon: "src/assets/cryptocurrency-icons-master/svg/white/sol.svg",
     component: <Solana />,
     layout: "",
   },

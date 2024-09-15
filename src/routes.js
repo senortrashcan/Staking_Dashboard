@@ -42,11 +42,11 @@ var routes = [
     layout: "",
   },
   {
-    path: "/stake",
-    name: "Stake",
+    path: "/Cardano",
+    name: "Cardano",
     rtlName: "الرموز",
     icon: "tim-icons icon-money-coins",
-    component: <Solana />,
+    component: <Notifications />,
     layout: "",
   },
 ];

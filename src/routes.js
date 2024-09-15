@@ -38,7 +38,7 @@ var routes = [
     path: "/solana",
     name: "Solana",
     rtlName: "الرموز",
-    icon: "tim-icons icon-money-coins",
+    icon: "src/assets/css/img/react-logo.png",
     component: <Solana />,
     layout: "",
   },

@@ -21,7 +21,7 @@ import 'assets/css/stakingkiwi.css'; // Import the CSS file
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
 
-function Icons() {
+function Solana() {
   useEffect(() => {
     // Create script element
     const script = document.createElement('script');
@@ -77,4 +77,4 @@ function Icons() {
   );
 }
 
-export default Icons;
+export default Solana;

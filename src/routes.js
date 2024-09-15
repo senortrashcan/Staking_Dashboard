@@ -16,7 +16,8 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Solana from "views/egg.js";
+import Solana from "views/solana.js";
+import Cardano from "views/cardano.js";
 import Map from "views/Map.js";
 import Notifications from "views/Notifications.js";
 import Rtl from "views/Rtl.js";
@@ -46,7 +47,7 @@ var routes = [
     name: "Cardano",
     rtlName: "الرموز",
     icon: "tim-icons icon-money-coins",
-    component: <Notifications />,
+    component: <Cardano />,
     layout: "",
   },
 ];

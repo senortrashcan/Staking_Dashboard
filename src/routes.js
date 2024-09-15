@@ -16,7 +16,7 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Icons from "views/Icons.js";
+import Solana from "views/Solana.js";
 import Map from "views/Map.js";
 import Notifications from "views/Notifications.js";
 import Rtl from "views/Rtl.js";
@@ -38,7 +38,7 @@ var routes = [
     name: "Stake",
     rtlName: "الرموز",
     icon: "tim-icons icon-money-coins",
-    component: <Icons />,
+    component: <Solana />,
     layout: "",
   },
 ];

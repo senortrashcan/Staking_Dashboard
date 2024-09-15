@@ -34,6 +34,14 @@ var routes = [
     layout: "",
   },
   {
+    path: "/solana",
+    name: "Solana",
+    rtlName: "الرموز",
+    icon: "tim-icons icon-money-coins",
+    component: <Solana />,
+    layout: "",
+  },
+  {
     path: "/stake",
     name: "Stake",
     rtlName: "الرموز",

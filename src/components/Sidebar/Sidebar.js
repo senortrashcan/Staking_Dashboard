@@ -20,6 +20,7 @@ import React from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 // nodejs library to set properties for components
 import { PropTypes } from "prop-types";
+import Divider from '@mui/material/Divider';
 
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -75,6 +76,7 @@ function Sidebar(props) {
         </a>
       );
       logoText = (
+        
         <a
           href={logo.outterLink}
           className="simple-text logo-normal"
@@ -92,6 +94,7 @@ function Sidebar(props) {
           onClick={props.toggleSidebar}
         >
           <div className="logo-img">
+            <Divider>CENTER</Divider>
             <img src={logo.imgSrc} alt="react-logo" />
           </div>
         </Link>

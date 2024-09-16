@@ -24,7 +24,7 @@ import Rtl from "views/Rtl.js";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
-import { ReactComponent as MyIcon } from '.sol.svg';
+import { ReactComponent as MyIcon } from '/sol.svg';
 
 
 var routes = [

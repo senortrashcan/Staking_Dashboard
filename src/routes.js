@@ -24,8 +24,7 @@ import Rtl from "views/Rtl.js";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
-import { ReactComponent as MyIcon } from 'src/sol.svg';
-
+import { SolIcon } from "./node_modules/cryptocurrency-icons/svg/white/sol.svg"
 
 var routes = [
   {
@@ -40,7 +39,7 @@ var routes = [
     path: "/solana",
     name: "Solana",
     rtlName: "الرموز",
-    icon: <MyIcon />,
+    icon: <SolIcon />,
     component: <Solana />,
     layout: "",
   },

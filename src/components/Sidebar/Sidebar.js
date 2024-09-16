@@ -94,7 +94,6 @@ function Sidebar(props) {
           onClick={props.toggleSidebar}
         >
           <div className="logo-img">
-            <Divider>CENTER</Divider>
             <img src={logo.imgSrc} alt="react-logo" />
           </div>
         </Link>

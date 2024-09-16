@@ -25,6 +25,7 @@ import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
 import SolIcon from "/node_modules/cryptocurrency-icons/svg/white/sol.svg"
+import { Divider } from "@mui/material";
 
 var routes = [
   {
@@ -35,6 +36,7 @@ var routes = [
     component: <Dashboard />,
     layout: "",
   },
+  <Divider>CENTER</Divider>,
   {
     path: "/solana",
     name: "Solana",

@@ -39,7 +39,7 @@ var routes = [
     path: "/solana",
     name: "Solana",
     rtlName: "الرموز",
-    icon: "Solana",
+    icon: "tim-icons Solana",
     component: <Solana />,
     layout: "",
   },

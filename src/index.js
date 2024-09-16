@@ -30,6 +30,7 @@ import "@cryptofonts/cryptofont/cryptofont.css";
 
 import ThemeContextWrapper from "./components/ThemeWrapper/ThemeWrapper";
 import BackgroundColorWrapper from "./components/BackgroundColorWrapper/BackgroundColorWrapper";
+import { Divider } from "@mui/material";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

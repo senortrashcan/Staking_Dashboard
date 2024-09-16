@@ -24,7 +24,7 @@ import Rtl from "views/Rtl.js";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
-import { SolIcon } from "./node_modules/cryptocurrency-icons/svg/white/sol.svg"
+import { SolIcon } from "/node_modules/cryptocurrency-icons/svg/white/sol.svg"
 
 var routes = [
   {

@@ -113,7 +113,6 @@ function Sidebar(props) {
   }
   return (
     <BackgroundColorContext.Consumer>
-      <Divider><Chip label="Staking" size="large" /></Divider>
       {({ color }) => (
         <div className="sidebar" data={color}>
           <div className="sidebar-wrapper" ref={sidebarRef}>
@@ -124,6 +123,7 @@ function Sidebar(props) {
               </div>
             ) : null}
             <Nav>
+            <Divider><Chip label="Staking" size="large" /></Divider>
               {routes.map((prop, key) => {
                 if (prop.redirect) return null;
                 return (

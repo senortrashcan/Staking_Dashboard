@@ -104,6 +104,7 @@ async function generateChartData(canvas) {
   const currentPrice = last10Data.map(entry => entry.price);
   console.log(currentPrice);
   console.log(time);
+  
 let chartExample1 = {	
   data1: async (canvas) => {	
     return await generateChartData(canvas);	
@@ -418,9 +419,6 @@ const chartExample4 = {
     },
   },
 };
-
-// Call the function to fetch data and store it in the variable
-fetchSolanaData();
 
 module.exports = {
   chartExample1, // in src/views/Dashboard.js

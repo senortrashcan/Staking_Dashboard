@@ -122,7 +122,6 @@ function Sidebar(props) {
               </div>
             ) : null}
             <Nav>
-            <Divider style={{ background: 'black' }} variant="middle">Help</Divider>
               {routes.map((prop, key) => {
                 if (prop.redirect) return null;
                 return (
@@ -132,6 +131,7 @@ function Sidebar(props) {
                     }
                     key={key}
                   >
+                    <Divider style={{ color: 'white' }} variant="middle">Help</Divider>
                     <NavLink
                       to={prop.layout + prop.path}
                       className="nav-link"

@@ -45,8 +45,8 @@ let chart1_2_options = {
         zeroLineColor: "transparent",
       },
       ticks: {
-        suggestedMin: 60,
-        suggestedMax: 125,
+        suggestedMin: 80,
+        suggestedMax: 180,
         padding: 20,
         fontColor: "#9a9a9a",
       },
@@ -163,20 +163,7 @@ let chartExample1 = {
     gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
     return {
-      labels: [
-        "JAN",
-        "FEB",
-        "MAR",
-        "APR",
-        "MAY",
-        "JUN",
-        "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC",
-      ],
+      labels: [time],
       datasets: [
         {
           label: "My First dataset",
@@ -193,7 +180,7 @@ let chartExample1 = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120],
+          data: [80, 120, 105.37, 110, 95.69, 105, 90.4, 100, 80, 95, 70, 120],
         },
       ],
     };

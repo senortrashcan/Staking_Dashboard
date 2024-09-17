@@ -109,14 +109,14 @@ async function generateChartData(canvas) {
   // Extract dates and prices from the last 10 data points
   const time = last10Data.map(entry => entry.date);
   const currentPrice = last10Data.map(entry => entry.price);
-  console.log(data);
-  console.log(labels);
+  console.log(currentPrice);
+  console.log(time);
 
   return {
     labels: time,
     datasets: [
       {
-        label: "My First dataset",
+        label: "Price",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: "#1f8ef1",

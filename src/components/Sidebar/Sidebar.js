@@ -112,48 +112,57 @@ function Sidebar(props) {
   }
   return (
     <BackgroundColorContext.Consumer>
-      {({ color }) => (
-        <div className="sidebar" data={color}>
-          <div className="sidebar-wrapper" ref={sidebarRef}>
-            {logoImg !== null || logoText !== null ? (
-              <div className="logo">
-                {logoImg}
-                {logoText}
-              </div>
-            ) : null}
-            <Nav>
-              {routes.map((prop, key) => {
-                if (prop.redirect) return null;
-                return (
-                  <li
-                    className={
-                      activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
-                    }
-                    key={key}
-                  >
-                    <Divider sx={{ color: '#ffffff' }} textAlign="center">Staking</Divider> 
-                    <NavLink
-                      to={prop.layout + prop.path}
-                      className="nav-link"
-                      onClick={props.toggleSidebar}
-                    >
-                      <i className={prop.icon} />
-                      <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                    </NavLink>
-                  </li>
-                );
-              })}
-              <li className="active-pro">
-                <ReactstrapNavLink href="https://liquifiedcapital.com/documentation" target="_blank">
-                  <i className="tim-icons icon-book-bookmark" />
-                  <p>DOCS</p>
-                </ReactstrapNavLink>
-              </li>
-            </Nav>
+  {({ color }) => (
+    <div className="sidebar" data={color}>
+      <div className="sidebar-wrapper" ref={sidebarRef}>
+        {logoImg !== null || logoText !== null ? (
+          <div className="logo">
+            {logoImg}
+            {logoText}
           </div>
-        </div>
-      )}
-    </BackgroundColorContext.Consumer>
+        ) : null}
+        <Nav>
+          {routes.map((prop, key) => {
+            if (prop.redirect) return null;
+
+            // Conditional rendering of Divider
+            const showDivider = key === 0;
+
+            return (
+              <React.Fragment key={key}>
+                {showDivider && (
+                  <Divider sx={{ color: '#ffffff' }} textAlign="center">
+                    Staking
+                  </Divider>
+                )}
+                <li
+                  className={
+                    activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
+                  }
+                >
+                  <NavLink
+                    to={prop.layout + prop.path}
+                    className="nav-link"
+                    onClick={props.toggleSidebar}
+                  >
+                    <i className={prop.icon} />
+                    <p>{rtlActive ? prop.rtlName : prop.name}</p>
+                  </NavLink>
+                </li>
+              </React.Fragment>
+            );
+          })}
+          <li className="active-pro">
+            <ReactstrapNavLink href="https://liquifiedcapital.com/documentation" target="_blank">
+              <i className="tim-icons icon-book-bookmark" />
+              <p>DOCS</p>
+            </ReactstrapNavLink>
+          </li>
+        </Nav>
+      </div>
+    </div>
+  )}
+</BackgroundColorContext.Consumer>
   );
 }
 

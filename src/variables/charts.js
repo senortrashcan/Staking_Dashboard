@@ -75,7 +75,7 @@ let solanaData = [];
 // Function to fetch data from the API
 async function fetchSolanaData() {
   try {
-    const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=h1');
+    const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=m15');
     const data = await response.json();
 
     // Process the data as needed and store it in the variable
@@ -96,13 +96,6 @@ async function generateChartData(canvas) {
   // Ensure data is fetched
   await fetchSolanaData();
 
-  let ctx = canvas.getContext("2d");
-
-  let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-  gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
-  gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
-  gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); // blue colors
-
   // Get the last 10 data points from the fetched data
   const last10Data = solanaData.slice(-10);
 
@@ -112,21 +105,15 @@ async function generateChartData(canvas) {
   console.log(currentPrice);
   console.log(time);
 
+  let ctx = canvas.getContext("2d");
+
+  let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+  gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+  gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+  gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); // blue colors
+  
   return {
-    labels: [
-        "JAN",
-        "FEB",
-        "MAR",
-        "APR",
-        "MAY",
-        "JUN",
-        "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC",
-      ],
+    labels: time,
     datasets: [
       {
         label: "Price",
@@ -148,7 +135,8 @@ async function generateChartData(canvas) {
     ],
   };
 }
-// Usage in the chart configuration	
+
+
 let chartExample1 = {	
   data1: async (canvas) => {	
     return await generateChartData(canvas);	

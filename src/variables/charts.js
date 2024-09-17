@@ -108,13 +108,8 @@ async function generateChartData(canvas) {
 
   // Extract dates and prices from the last 10 data points
   const labels = last10Data.map(entry => entry.date);
-  const data = last10Data.map(entry => entry.price);
+  const data = last10Data.map(entry => parseFloat(entry.price));
 
-    console.log(labels);
-  } catch (error) {
-    console.error('Error fetching labels data:', error);
-  }
-  
   return {
     labels: labels,
     datasets: [

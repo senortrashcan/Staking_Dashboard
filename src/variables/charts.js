@@ -68,7 +68,6 @@ let chart1_2_options = {
 // #########################################
 //       // TESTING API
 // #########################################
-// Fetch data from the API
 // Define the variable to store the fetched data
 let solanaData = [];
 
@@ -77,7 +76,7 @@ async function fetchSolanaData() {
   try {
     const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=h1');
     const data = await response.json();
-    
+
     // Process the data as needed and store it in the variable
     solanaData = data.data.map(entry => ({
       date: new Date(entry.date).toLocaleString(), // Convert date to a readable format
@@ -91,46 +90,51 @@ async function fetchSolanaData() {
   }
 }
 
+// Function to generate chart data with fetched data
+async function generateChartData(canvas) {
+  // Ensure data is fetched
+  await fetchSolanaData();
 
-// #########################################
-// // // used inside src/views/Dashboard.js
-// #########################################
+  let ctx = canvas.getContext("2d");
+
+  let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+  gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+  gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+  gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); // blue colors
+
+  // Extract dates and prices from the fetched data
+  const labels = solanaData.map(entry => entry.date);
+  const data = solanaData.map(entry => entry.price);
+
+  return {
+    labels: labels,
+    datasets: [
+      {
+        label: "My First dataset",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: "#1f8ef1",
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: "#1f8ef1",
+        pointBorderColor: "rgba(255,255,255,0)",
+        pointHoverBackgroundColor: "#1f8ef1",
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: data,
+      },
+    ],
+  };
+}
+
+// Usage in the chart configuration
 let chartExample1 = {
-  data1: (canvas) => {
-    let ctx = canvas.getContext("2d");
-
-    let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
-    gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
-    gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
-    fetchSolanaData();
-
-    return {
-      labels: [
-        date
-      ],
-      datasets: [
-        {
-          label: "My First dataset",
-          fill: true,
-          backgroundColor: gradientStroke,
-          borderColor: "#1f8ef1",
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          pointBackgroundColor: "#1f8ef1",
-          pointBorderColor: "rgba(255,255,255,0)",
-          pointHoverBackgroundColor: "#1f8ef1",
-          pointBorderWidth: 20,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 15,
-          pointRadius: 4,
-          data: [price],
-        },
-      ],
-    };
-  },
+data1: async (canvas) => {
+  return await generateChartData(canvas);
+},
   data2: (canvas) => {
     let ctx = canvas.getContext("2d");
 

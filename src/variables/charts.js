@@ -107,13 +107,13 @@ async function generateChartData(canvas) {
   const last10Data = solanaData.slice(-10);
 
   // Extract dates and prices from the last 10 data points
-  const labels = last10Data.map(entry => entry.date);
-  const data = last10Data.map(entry => entry.price);
+  const time = last10Data.map(entry => entry.date);
+  const currentPrice = last10Data.map(entry => entry.price);
   console.log(data);
   console.log(labels);
 
   return {
-    labels: labels,
+    labels: time,
     datasets: [
       {
         label: "My First dataset",
@@ -130,7 +130,7 @@ async function generateChartData(canvas) {
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
-        data: data,
+        data: currentPrice,
       },
     ],
   };

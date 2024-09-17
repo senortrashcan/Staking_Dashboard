@@ -131,7 +131,7 @@ function Sidebar(props) {
             return (
               <React.Fragment key={key}>
                 {showDivider && (
-                  <div style={{ paddingtop: '16px 0', paddingbottom: '10px 0' }}>
+                  <div style={{ paddingTop: '16px 0', paddingBottom: '10px 0' }}>
                   <Divider sx={{ color: '#ffffff' }} textAlign="center">
                     Staking
                   </Divider>

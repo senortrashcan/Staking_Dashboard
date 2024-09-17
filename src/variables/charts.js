@@ -110,6 +110,15 @@ async function generateChartData(canvas) {
   const labels = last10Data.map(entry => entry.date);
   const data = last10Data.map(entry => entry.price);
 
+  console.log(labels);
+  } catch (error) {
+    console.error('Error fetching LABELS:', error);
+  }
+  console.log(data);
+  } catch (error) {
+    console.error('Error fetching DATA:', error);
+  }
+  
   return {
     labels: labels,
     datasets: [

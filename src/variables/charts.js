@@ -110,36 +110,63 @@ async function getChartData() {
 // #########################################
 let chartExample1 = {
   data1: (canvas) => {
-    async function updateChart() {
-      const chartData = await getChartData();
-    
-      if (chartData) {
-        if (!chart) {
-          // Create the chart if it doesn't exist
-          const ctx = document.getElementById('myChart').getContext('2d');
-          chart = new Chart(ctx, {
-            type: 'line', // or any other chart type
-            data: chartData,
-            options: {
-              // Your chart options here
-            },
-          });
-        } else {
-          // Update the existing chart
-          chart.data = chartData;
-          chart.update();
-        }
-      }
-    }
-  function startFetchingData() {
-    updateChart(); // Fetch and update data immediately on load
-    setInterval(updateChart, 600000); // Fetch and update data every 10 minutes
-  }
-  
-  // Call startFetchingData when the page loads
-  window.onload = startFetchingData;
-},
+    let ctx = canvas.getContext("2d");
 
+    let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+    gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+    gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+
+        // Define the variable to store the fetched data
+        let solanaData = [];
+
+        // Function to fetch data from the API
+        async function fetchSolanaData() {
+          try {
+            const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=h1');
+            const data = await response.json();
+            
+            // Process the data as needed and store it in the variable
+            solanaData = data.data.map(entry => ({
+              date: new Date(entry.date).toLocaleString(), // Convert date to a readable format
+              price: parseFloat(entry.price) // Convert price to a number
+            }));
+            
+            // Log the data to the console (for debugging purposes)
+            console.log(solanaData);
+          } catch (error) {
+            console.error('Error fetching Solana data:', error);
+          }
+        }
+    
+        // Call the function to fetch data and store it in the variable
+        fetchSolanaData();
+    return {
+      labels: [
+        date
+      ],
+      datasets: [
+        {
+          label: "My First dataset",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: "#1f8ef1",
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: "#1f8ef1",
+          pointBorderColor: "rgba(255,255,255,0)",
+          pointHoverBackgroundColor: "#1f8ef1",
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: [price],
+        },
+      ],
+    };
+  },
   data2: (canvas) => {
     let ctx = canvas.getContext("2d");
 

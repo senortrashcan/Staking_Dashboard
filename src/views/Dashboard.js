@@ -56,7 +56,7 @@ function Dashboard(props) {
   const setBgChartData = (name) => {
     setbigChartData(name);
   };
-
+ //yes
   return (
       <div className="content">
         <Row>

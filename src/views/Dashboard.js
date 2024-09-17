@@ -111,9 +111,6 @@ function Dashboard(props) {
           </Col>
         </Row>
       </div>
-    </>
-  );
-}
         <Row>
           <Col lg="4">
             <Card className="card-chart">

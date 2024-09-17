@@ -90,7 +90,8 @@ async function fetchSolanaData() {
     console.error('Error fetching Solana data:', error);
   }
 }
-
+let chartExample1 = {
+  data1: async (canvas) => {
 // Function to generate chart data with the last 10 data points
 async function generateChartData(canvas) {
   // Ensure data is fetched
@@ -148,12 +149,8 @@ async function generateChartData(canvas) {
     ],
   };
 }
+},
 
-// Usage in the chart configuration
-let chartExample1 = {
-  data1: async (canvas) => {
-    return await generateChartData(canvas);
-  },
   data2: (canvas) => {
     let ctx = canvas.getContext("2d");
 

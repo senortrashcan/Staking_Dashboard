@@ -89,6 +89,8 @@ function Sidebar(props) {
         </a>
       );
     } else {
+      <div><Divider><Chip label="Staking" size="large" /></Divider>
+      </div>
       logoImg = (
         <Link
           to={logo.innerLink}

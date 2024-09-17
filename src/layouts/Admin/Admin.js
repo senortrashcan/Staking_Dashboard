@@ -118,7 +118,6 @@ function Admin(props) {
                 toggleSidebar={toggleSidebar}
                 sidebarOpened={sidebarOpened}
               />
-              <Divider><Chip label="Staking" size="large" /></Divider>
               <Routes>
                 {getRoutes(routes)}
                 <Route

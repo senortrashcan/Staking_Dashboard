@@ -69,42 +69,29 @@ let chart1_2_options = {
 //       // TESTING API
 // #########################################
 // Fetch data from the API
+// Define the variable to store the fetched data
+let solanaData = [];
+
+// Function to fetch data from the API
 async function fetchSolanaData() {
   try {
     const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=h1');
     const data = await response.json();
-    return data;
+    
+    // Process the data as needed and store it in the variable
+    solanaData = data.data.map(entry => ({
+      date: new Date(entry.date).toLocaleString(), // Convert date to a readable format
+      price: parseFloat(entry.price) // Convert price to a number
+    }));
+    
+    // Log the data to the console (for debugging purposes)
+    console.log(solanaData);
   } catch (error) {
     console.error('Error fetching Solana data:', error);
   }
 }
 
-async function getChartData() {
-  const solanaData = await fetchSolanaData();
 
-  if (!solanaData || !solanaData.data || !Array.isArray(solanaData.data)) {
-    console.error('Invalid data format');
-    return null;
-  }
-
-  // Extract dates and prices from the data
-  const labels = solanaData.data.map(entry => new Date(entry.date).toLocaleDateString());
-  const data = solanaData.data.map(entry => parseFloat(entry.price));
-
-  return {
-    labels,
-    datasets: [
-      {
-        label: "Solana Price",
-        fill: true,
-        backgroundColor: gradientStroke, // Use the gradient defined in your original code
-        borderColor: "#1f8ef1",
-        borderWidth: 2,
-        data,
-      },
-    ],
-  };
-}
 // #########################################
 // // // used inside src/views/Dashboard.js
 // #########################################
@@ -118,30 +105,6 @@ let chartExample1 = {
     gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
     gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
-        // Define the variable to store the fetched data
-        let solanaData = [];
-
-        // Function to fetch data from the API
-        async function fetchSolanaData() {
-          try {
-            const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=h1');
-            const data = await response.json();
-            
-            // Process the data as needed and store it in the variable
-            solanaData = data.data.map(entry => ({
-              date: new Date(entry.date).toLocaleString(), // Convert date to a readable format
-              price: parseFloat(entry.price) // Convert price to a number
-            }));
-            
-            // Log the data to the console (for debugging purposes)
-            console.log(solanaData);
-          } catch (error) {
-            console.error('Error fetching Solana data:', error);
-          }
-        }
-    
-        // Call the function to fetch data and store it in the variable
-        fetchSolanaData();
     return {
       labels: [
         date
@@ -457,6 +420,9 @@ const chartExample4 = {
     },
   },
 };
+
+// Call the function to fetch data and store it in the variable
+fetchSolanaData();
 
 module.exports = {
   chartExample1, // in src/views/Dashboard.js

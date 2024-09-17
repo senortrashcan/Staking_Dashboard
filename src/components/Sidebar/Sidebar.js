@@ -72,7 +72,7 @@ function Sidebar(props) {
           onClick={props.toggleSidebar}
         >
           <div className="logo-img">
-          <Divider><Chip label="Staking" size="large" /></Divider>,
+          <Divider><Chip label="Staking" size="large" /></Divider>
             <img src={logo.imgSrc} alt="react-logo" />
           </div>
         </a>

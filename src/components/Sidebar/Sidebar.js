@@ -72,7 +72,6 @@ function Sidebar(props) {
           onClick={props.toggleSidebar}
         >
           <div className="logo-img">
-          <Divider><Chip label="Staking" size="large" /></Divider>
             <img src={logo.imgSrc} alt="react-logo" />
           </div>
         </a>
@@ -123,7 +122,7 @@ function Sidebar(props) {
               </div>
             ) : null}
             <Nav>
-            <Divider><Chip label="Staking" size="large" /></Divider>
+            <Divider>Staking</Divider>
               {routes.map((prop, key) => {
                 if (prop.redirect) return null;
                 return (

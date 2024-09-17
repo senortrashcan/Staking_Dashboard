@@ -131,9 +131,11 @@ function Sidebar(props) {
             return (
               <React.Fragment key={key}>
                 {showDivider && (
+                  <div style={{ padding: '16px 0' }}>
                   <Divider sx={{ color: '#ffffff' }} textAlign="center">
                     Staking
                   </Divider>
+                  </div>
                 )}
                 <li
                   className={

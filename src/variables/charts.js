@@ -149,9 +149,11 @@ async function generateChartData(canvas) {
     ],
   };
 }
-},
-
-  data2: (canvas) => {
+// Usage in the chart configuration	
+let chartExample1 = {	
+  data1: async (canvas) => {	
+    return await generateChartData(canvas);	
+  },
     let ctx = canvas.getContext("2d");
 
     let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);

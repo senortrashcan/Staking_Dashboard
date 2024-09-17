@@ -163,7 +163,7 @@ let chartExample1 = {
     gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
     return {
-      labels: time,
+      labels: [long, egg, man ,cheese, pepe],
       datasets: [
         {
           label: "My First dataset",

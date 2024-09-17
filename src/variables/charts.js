@@ -80,7 +80,7 @@ async function fetchSolanaData() {
 
     // Process the data as needed and store it in the variable
     solanaData = data.data.map(entry => ({
-      date: new Date(entry.date).toLocaleString(), // Convert date to a readable format
+      date: new Date(entry.date).toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }), // Convert date to a readable format
       price: parseFloat(entry.price) // Convert price to a number
     }));
     

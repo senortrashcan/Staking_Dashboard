@@ -69,6 +69,7 @@ let chart1_2_options = {
 //       // TESTING API
 // #########################################
 // Define the variable to store the fetched data
+// Define the variable to store the fetched data
 let solanaData = [];
 
 // Function to fetch data from the API
@@ -90,7 +91,7 @@ async function fetchSolanaData() {
   }
 }
 
-// Function to generate chart data with fetched data
+// Function to generate chart data with the last 10 data points
 async function generateChartData(canvas) {
   // Ensure data is fetched
   await fetchSolanaData();
@@ -102,9 +103,12 @@ async function generateChartData(canvas) {
   gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
   gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); // blue colors
 
-  // Extract dates and prices from the fetched data
-  const labels = solanaData.map(entry => entry.date);
-  const data = solanaData.map(entry => entry.price);
+  // Get the last 10 data points from the fetched data
+  const last10Data = solanaData.slice(-10);
+
+  // Extract dates and prices from the last 10 data points
+  const labels = last10Data.map(entry => entry.date);
+  const data = last10Data.map(entry => entry.price);
 
   return {
     labels: labels,
@@ -132,9 +136,9 @@ async function generateChartData(canvas) {
 
 // Usage in the chart configuration
 let chartExample1 = {
-data1: async (canvas) => {
-  return await generateChartData(canvas);
-},
+  data1: async (canvas) => {
+    return await generateChartData(canvas);
+  },
   data2: (canvas) => {
     let ctx = canvas.getContext("2d");
 

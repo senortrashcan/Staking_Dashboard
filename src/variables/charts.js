@@ -147,7 +147,7 @@ async function generateChartData(canvas) {
       },
     ],
   };
-},
+}
 // Usage in the chart configuration	
 let chartExample1 = {	
   data1: async (canvas) => {	

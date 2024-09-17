@@ -20,7 +20,8 @@ import React from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 // nodejs library to set properties for components
 import { PropTypes } from "prop-types";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
+import Chip from "@mui/material/Chip";
 
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";

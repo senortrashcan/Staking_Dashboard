@@ -25,8 +25,7 @@ import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
 import SolIcon from "/node_modules/cryptocurrency-icons/svg/white/sol.svg"
-import Divider from "@mui/material/Divider";
-import Chip from "@mui/material/Chip";
+
 
 var routes = [
   {
@@ -37,7 +36,6 @@ var routes = [
     component: <Dashboard />,
     layout: "",
   },
-  <Divider><Chip label="Staking" size="large" /></Divider>,
   {
     path: "/solana",
     name: "Solana",

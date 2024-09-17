@@ -131,7 +131,8 @@ function Sidebar(props) {
                     }
                     key={key}
                   >
-                    <Divider style={{ color: 'white' }} variant="middle">Help</Divider>
+                    <Divider sx={{ color: '#ffffff' }} 
+                        textAlign="center">Staking</Divider> 
                     <NavLink
                       to={prop.layout + prop.path}
                       className="nav-link"

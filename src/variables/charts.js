@@ -130,7 +130,7 @@ async function generateChartData(canvas) {
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
-        data: currentPrice,
+        data: [5,10,16,14,18,16,1.6,1.7,7.6,2.8],
       },
     ],
   };

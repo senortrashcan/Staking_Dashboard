@@ -126,7 +126,7 @@ function Sidebar(props) {
             if (prop.redirect) return null;
 
             // Conditional rendering of Divider
-            const showDivider = key === 0;
+            const showDivider = key === 1;
 
             return (
               <React.Fragment key={key}>

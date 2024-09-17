@@ -89,8 +89,6 @@ function Sidebar(props) {
         </a>
       );
     } else {
-      <div><Divider><Chip label="Staking" size="large" /></Divider>
-      </div>
       logoImg = (
         <Link
           to={logo.innerLink}
@@ -115,6 +113,7 @@ function Sidebar(props) {
   }
   return (
     <BackgroundColorContext.Consumer>
+      <Divider><Chip label="Staking" size="large" /></Divider>
       {({ color }) => (
         <div className="sidebar" data={color}>
           <div className="sidebar-wrapper" ref={sidebarRef}>

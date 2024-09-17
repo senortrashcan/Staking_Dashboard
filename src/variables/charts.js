@@ -90,8 +90,7 @@ async function fetchSolanaData() {
     console.error('Error fetching Solana data:', error);
   }
 }
-let chartExample1 = {
-  data1: async (canvas) => {
+
 // Function to generate chart data with the last 10 data points
 async function generateChartData(canvas) {
   // Ensure data is fetched

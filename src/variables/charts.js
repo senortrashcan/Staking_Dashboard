@@ -113,7 +113,20 @@ async function generateChartData(canvas) {
   console.log(time);
 
   return {
-    labels: time,
+    labels: [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC",
+      ],
     datasets: [
       {
         label: "Price",

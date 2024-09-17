@@ -137,7 +137,7 @@ let chartExample1 = {
         },
       ],
     };
-  }
+  },
 
 
 let chartExample1 = {	

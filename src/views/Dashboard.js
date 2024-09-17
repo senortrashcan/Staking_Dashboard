@@ -15,49 +15,48 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
-import { Button, ButtonGroup, Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
+import React from "react";
+// nodejs library that concatenates classes
 import classNames from "classnames";
-import { chartExample1 } from "variables/charts.js";
+// react plugin used to create charts
+import { Line, Bar } from "react-chartjs-2";
+
+// reactstrap components
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  CardHeader,
+  CardBody,
+  CardTitle,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  Label,
+  FormGroup,
+  Input,
+  Table,
+  Row,
+  Col,
+  UncontrolledTooltip,
+} from "reactstrap";
+
+// core components
+import {
+  chartExample1,
+  chartExample2,
+  chartExample3,
+  chartExample4,
+} from "variables/charts.js";
 
 function Dashboard(props) {
-  const [bigChartData, setbigChartData] = useState("data1");
-  const [chartData, setChartData] = useState(chartExample1.data1);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch('https://api.coincap.io/v2/assets/solana/history?interval=h1');
-      const data = await response.json();
-      const last10Data = data.data.slice(-10);
-
-      setChartData({
-        labels: last10Data.map(entry => new Date(entry.date).toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' })),
-        datasets: [
-          {
-            label: "Price",
-            fill: true,
-            backgroundColor: "rgba(29,140,248,0.2)",
-            borderColor: "#1f8ef1",
-            borderWidth: 2,
-            data: last10Data.map(entry => parseFloat(entry.priceUsd).toFixed(2)),
-          },
-        ],
-      });
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [bigChartData]);
-
+  const [bigChartData, setbigChartData] = React.useState("data1");
   const setBgChartData = (name) => {
     setbigChartData(name);
   };
- //yes
   return (
+    <>
       <div className="content">
         <Row>
           <Col xs="12">
@@ -65,37 +64,64 @@ function Dashboard(props) {
               <CardHeader>
                 <Row>
                   <Col className="text-left" sm="6">
-                    <h5 className="card-category">*Updates every 10 Min.</h5>
-                    <CardTitle tag="h2">Total Stake</CardTitle>
+                    <h5 className="card-category">Total Stake</h5>
+                    <CardTitle tag="h2">*Updates every 10 Min.</CardTitle>
                   </Col>
                   <Col sm="6">
-                    <ButtonGroup className="btn-group-toggle float-right" data-toggle="buttons">
+                    <ButtonGroup
+                      className="btn-group-toggle float-right"
+                      data-toggle="buttons"
+                    >
                       <Button
                         tag="label"
-                        className={classNames("btn-simple", { active: bigChartData === "data1" })}
+                        className={classNames("btn-simple", {
+                          active: bigChartData === "data1",
+                        })}
                         color="info"
+                        id="0"
                         size="sm"
                         onClick={() => setBgChartData("data1")}
                       >
-                        Solana
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                          Accounts
+                        </span>
+                        <span className="d-block d-sm-none">
+                          <i className="tim-icons icon-single-02" />
+                        </span>
                       </Button>
                       <Button
                         color="info"
+                        id="1"
                         size="sm"
                         tag="label"
-                        className={classNames("btn-simple", { active: bigChartData === "data2" })}
+                        className={classNames("btn-simple", {
+                          active: bigChartData === "data2",
+                        })}
                         onClick={() => setBgChartData("data2")}
                       >
-                        Purchases
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                          Purchases
+                        </span>
+                        <span className="d-block d-sm-none">
+                          <i className="tim-icons icon-gift-2" />
+                        </span>
                       </Button>
                       <Button
                         color="info"
+                        id="2"
                         size="sm"
                         tag="label"
-                        className={classNames("btn-simple", { active: bigChartData === "data3" })}
+                        className={classNames("btn-simple", {
+                          active: bigChartData === "data3",
+                        })}
                         onClick={() => setBgChartData("data3")}
                       >
-                        Sessions
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                          Sessions
+                        </span>
+                        <span className="d-block d-sm-none">
+                          <i className="tim-icons icon-tap-02" />
+                        </span>
                       </Button>
                     </ButtonGroup>
                   </Col>
@@ -103,13 +129,15 @@ function Dashboard(props) {
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line data={chartData} options={chartExample1.options} />
+                  <Line
+                    data={chartExample1[bigChartData]}
+                    options={chartExample1.options}
+                  />
                 </div>
               </CardBody>
             </Card>
           </Col>
         </Row>
-      </div>
         <Row>
           <Col lg="4">
             <Card className="card-chart">

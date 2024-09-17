@@ -89,7 +89,4 @@ const chartExample1 = {
 
 module.exports = {
   chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4,
 };

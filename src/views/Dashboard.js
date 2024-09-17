@@ -58,7 +58,6 @@ function Dashboard(props) {
   };
 
   return (
-    <>
       <div className="content">
         <Row>
           <Col xs="12">

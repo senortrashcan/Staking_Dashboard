@@ -122,7 +122,7 @@ function Sidebar(props) {
               </div>
             ) : null}
             <Nav>
-            <Divider>Staking</Divider>
+            <Divider sx={{ bgcolor: "secondary.light" }} />
               {routes.map((prop, key) => {
                 if (prop.redirect) return null;
                 return (

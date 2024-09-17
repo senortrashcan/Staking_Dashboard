@@ -36,7 +36,7 @@ var routes = [
     component: <Dashboard />,
     layout: "",
   },
-  <Divider>CENTER</Divider>,
+  <Divider><Chip label="Staking" size="large" /></Divider>,
   {
     path: "/solana",
     name: "Solana",

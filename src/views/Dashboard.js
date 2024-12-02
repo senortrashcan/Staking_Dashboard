@@ -164,13 +164,27 @@ function Dashboard(props) {
                   <gecko-coin-price-chart-widget
                     locale="en"
                     transparent-background="true"
+                    dark-mode="true"
                     outlined="true"
                     coin-id="solana"
                     initial-currency="usd"
                   ></gecko-coin-price-chart-widget>
                 </div>
               </CardBody>
+              <CardBody>
+                <div id="coingecko-widget">
+                  <gecko-coin-price-chart-widget
+                    locale="en"
+                    transparent-background="true"
+                    dark-mode="true"
+                    outlined="true"
+                    coin-id="Avavalanche-2"
+                    initial-currency="usd"
+                  ></gecko-coin-price-chart-widget>
+                </div>
+              </CardBody>
             </Card>
+            
           </Col>
         </Row>
       </div>

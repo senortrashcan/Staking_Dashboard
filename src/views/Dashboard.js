@@ -50,22 +50,25 @@ import {
 } from "variables/charts.js";
 
 // Load CoinGecko widget using useEffect
-useEffect(() => {
-  const script = document.createElement("script");
-  script.src = "https://widgets.coingecko.com/gecko-coin-price-chart-widget.js";
-  script.async = true;
-  document.body.appendChild(script);
 
-  return () => {
-    document.body.removeChild(script);
-  };
-}, []);
 
 function Dashboard(props) {
   const [bigChartData, setbigChartData] = React.useState("data1");
   const setBgChartData = (name) => {
     setbigChartData(name);
   };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://widgets.coingecko.com/gecko-coin-price-chart-widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <>
       <div className="content">

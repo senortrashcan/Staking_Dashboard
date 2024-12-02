@@ -159,30 +159,33 @@ function Dashboard(props) {
               <gecko-coin-price-chart-widget
                 locale="en"
                 transparent-background="true"
-                outlined="true"
-                coin-id="bitcoin"
-                initial-currency="usd"
-              ></gecko-coin-price-chart-widget>
-            </div>
-          </Col>
-          <Col md="4">
-            <div className="widget-container">
-              <gecko-coin-price-chart-widget
-                locale="en"
-                transparent-background="true"
-                outlined="true"
-                coin-id="ethereum"
-                initial-currency="usd"
-              ></gecko-coin-price-chart-widget>
-            </div>
-          </Col>
-          <Col md="4">
-            <div className="widget-container">
-              <gecko-coin-price-chart-widget
-                locale="en"
-                transparent-background="true"
+                dark-mode="true"
                 outlined="true"
                 coin-id="solana"
+                initial-currency="usd"
+              ></gecko-coin-price-chart-widget>
+            </div>
+          </Col>
+          <Col md="4">
+            <div className="widget-container">
+              <gecko-coin-price-chart-widget
+                locale="en"
+                transparent-background="true"
+                dark-mode="true"
+                outlined="true"
+                coin-id="avalanche-2"
+                initial-currency="usd"
+              ></gecko-coin-price-chart-widget>
+            </div>
+          </Col>
+          <Col md="4">
+            <div className="widget-container">
+              <gecko-coin-price-chart-widget
+                locale="en"
+                transparent-background="true"
+                dark-mode="true"
+                outlined="true"
+                coin-id="tether"
                 initial-currency="usd"
               ></gecko-coin-price-chart-widget>
             </div>

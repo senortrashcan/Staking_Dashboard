@@ -149,7 +149,27 @@ function Dashboard(props) {
             </Card>
           </Col>
         </Row>
-      
+      {/* CoinGecko Widget */}
+      <Row>
+          <Col xs="12">
+            <Card>
+              <CardHeader>
+                <CardTitle tag="h5">Cryptocurrency Prices</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <div id="coingecko-widget">
+                  <gecko-coin-price-chart-widget
+                    locale="en"
+                    transparent-background="true"
+                    outlined="true"
+                    coin-id="solana"
+                    initial-currency="usd"
+                  ></gecko-coin-price-chart-widget>
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
       </div>
     </>
   );

@@ -152,39 +152,40 @@ function Dashboard(props) {
             </Card>
           </Col>
         </Row>
-      {/* CoinGecko Widget */}
-      <Row>
-          <Col xs="12">
-            <Card>
-              <CardHeader>
-                <CardTitle tag="h5">Cryptocurrency Prices</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div id="coingecko-widget">
-                  <gecko-coin-price-chart-widget
-                    locale="en"
-                    transparent-background="true"
-                    dark-mode="true"
-                    outlined="true"
-                    coin-id="solana"
-                    initial-currency="usd"
-                  ></gecko-coin-price-chart-widget>
-                </div>
-              </CardBody>
-              <CardBody>
-                <div id="coingecko-widget">
-                  <gecko-coin-price-chart-widget
-                    locale="en"
-                    transparent-background="true"
-                    dark-mode="true"
-                    outlined="true"
-                    coin-id="Avavalanche-2"
-                    initial-currency="usd"
-                  ></gecko-coin-price-chart-widget>
-                </div>
-              </CardBody>
-            </Card>
-            
+       {/* CoinGecko Widgets Row */}
+       <Row>
+          <Col md="4">
+            <div className="widget-container">
+              <gecko-coin-price-chart-widget
+                locale="en"
+                transparent-background="true"
+                outlined="true"
+                coin-id="bitcoin"
+                initial-currency="usd"
+              ></gecko-coin-price-chart-widget>
+            </div>
+          </Col>
+          <Col md="4">
+            <div className="widget-container">
+              <gecko-coin-price-chart-widget
+                locale="en"
+                transparent-background="true"
+                outlined="true"
+                coin-id="ethereum"
+                initial-currency="usd"
+              ></gecko-coin-price-chart-widget>
+            </div>
+          </Col>
+          <Col md="4">
+            <div className="widget-container">
+              <gecko-coin-price-chart-widget
+                locale="en"
+                transparent-background="true"
+                outlined="true"
+                coin-id="solana"
+                initial-currency="usd"
+              ></gecko-coin-price-chart-widget>
+            </div>
           </Col>
         </Row>
       </div>

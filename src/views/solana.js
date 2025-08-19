@@ -54,14 +54,18 @@ function Solana() {
                   </p>
                 </div>
               </CardHeader>
-              <CardBody>
-                <div>
-                  <h6>Solana Version Data:</h6>
-                  {version ? (
-                    <pre>{JSON.stringify(version, null, 2)}</pre> // Display the version data
-                  ) : (
-                    <p>Loading...</p> // Show a loading message while data is being fetched
-                  )}
+              <CardBody className="all-icons">
+                <div className="iframe-container">
+                  <iframe
+                    id="staking-kiwi-widget-0"
+                    scrolling="no"
+                    frameBorder="0"
+                    allowTransparency="true"
+                    allowFullScreen
+                    className="staking-widget-iframe"
+                    title="Staking Kiwi widget"
+                    src="https://widget.staking.kiwi/?validator=&theme=dark"
+                  ></iframe>
                 </div>
               </CardBody>
             </Card>

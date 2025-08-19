@@ -15,38 +15,29 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import 'assets/css/stakingkiwi.css'; // Import the CSS file
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
-
-
-import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
-
-const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-
-let version = await connection.getVoteAccounts();
-
-console.log(version);
+import { Connection, clusterApiUrl } from "@solana/web3.js";
 
 function Solana() {
+  const [version, setVersion] = useState(null); // State to store the version data
+
   useEffect(() => {
-    // Create script element
-    const script = document.createElement('script');
-    script.src = "https://widget.staking.kiwi/js/widget.min.js";
-    script.async = true;
-    script.onload = () => {
-      // Script has loaded and is ready to use
-      console.log('Staking widget script loaded');
+    // Function to fetch Solana data
+    const fetchSolanaData = async () => {
+      try {
+        const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+        const versionData = await connection.getVoteAccounts();
+        setVersion(versionData); // Update the state with the fetched data
+        console.log(versionData); // Log the data to the console
+      } catch (error) {
+        console.error("Error fetching Solana data:", error);
+      }
     };
 
-    // Append script to the body
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script when the component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
+    fetchSolanaData(); // Call the function to fetch data
   }, []); // Empty dependency array ensures this effect runs only once after initial render
 
   return (
@@ -63,18 +54,14 @@ function Solana() {
                   </p>
                 </div>
               </CardHeader>
-              <CardBody className="all-icons">
-                <div className="iframe-container">
-                  <iframe
-                    id="staking-kiwi-widget-0"
-                    scrolling="no"
-                    frameBorder="0"
-                    allowTransparency="true"
-                    allowFullScreen
-                    className="staking-widget-iframe"
-                    title="Staking Kiwi widget"
-                    src="https://widget.staking.kiwi/?validator=&theme=dark"
-                  ></iframe>
+              <CardBody>
+                <div>
+                  <h6>Solana Version Data:</h6>
+                  {version ? (
+                    <pre>{JSON.stringify(version, null, 2)}</pre> // Display the version data
+                  ) : (
+                    <p>Loading...</p> // Show a loading message while data is being fetched
+                  )}
                 </div>
               </CardBody>
             </Card>

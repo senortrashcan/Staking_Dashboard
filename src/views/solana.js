@@ -21,6 +21,14 @@ import 'assets/css/stakingkiwi.css'; // Import the CSS file
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
 
+import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
+
+const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+
+let version = await connection.getVoteAccounts();
+
+console.log(version);
+
 function Solana() {
   useEffect(() => {
     // Create script element

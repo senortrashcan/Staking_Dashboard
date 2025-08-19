@@ -1,43 +1,37 @@
-/*!
 
-=========================================================
-* Black Dashboard React v1.2.2
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/black-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { useEffect, useState } from "react";
 import 'assets/css/stakingkiwi.css'; // Import the CSS file
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
-import { Connection, clusterApiUrl } from "@solana/web3.js";
+import { address, createSolanaRpc } from "@solana/kit";
 
 function Solana() {
-  const [version, setVersion] = useState(null); // State to store the version data
+  const [voteAccounts, setVoteAccounts] = useState(null); // State to store the vote accounts data
 
   useEffect(() => {
-    // Function to fetch Solana data
-    const fetchSolanaData = async () => {
+    // Function to fetch Solana vote accounts data
+    const fetchVoteAccounts = async () => {
       try {
-        const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-        const versionData = await connection.getVoteAccounts();
-        setVersion(versionData); // Update the state with the fetched data
-        console.log(versionData); // Log the data to the console
+        const rpc_url = "https://api.devnet.solana.com";
+        const rpc = createSolanaRpc(rpc_url);
+
+        let votePubkey = address("5ZWgXcyqrrNpQHCme5SdC5hCeYb2o3fEJhF7Gok3bTVN");
+
+        let voteAccountsData = await rpc
+          .getVoteAccounts({
+            votePubkey,
+          })
+          .send();
+
+        setVoteAccounts(voteAccountsData); // Update the state with the fetched data
+        console.log(voteAccountsData); // Log the data to the console
       } catch (error) {
-        console.error("Error fetching Solana data:", error);
+        console.error("Error fetching vote accounts data:", error);
       }
     };
 
-    fetchSolanaData(); // Call the function to fetch data
+    fetchVoteAccounts(); // Call the function to fetch data
   }, []); // Empty dependency array ensures this effect runs only once after initial render
 
   return (
@@ -54,18 +48,14 @@ function Solana() {
                   </p>
                 </div>
               </CardHeader>
-              <CardBody className="all-icons">
-                <div className="iframe-container">
-                  <iframe
-                    id="staking-kiwi-widget-0"
-                    scrolling="no"
-                    frameBorder="0"
-                    allowTransparency="true"
-                    allowFullScreen
-                    className="staking-widget-iframe"
-                    title="Staking Kiwi widget"
-                    src="https://widget.staking.kiwi/?validator=&theme=dark"
-                  ></iframe>
+              <CardBody>
+                <div>
+                  <h6>Vote Accounts Data:</h6>
+                  {voteAccounts ? (
+                    <pre>{JSON.stringify(voteAccounts, null, 2)}</pre> // Display the vote accounts data
+                  ) : (
+                    <p>Loading...</p> // Show a loading message while data is being fetched
+                  )}
                 </div>
               </CardBody>
             </Card>

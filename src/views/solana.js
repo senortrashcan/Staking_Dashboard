@@ -19,7 +19,7 @@ import React, { useEffect, useState } from "react";
 import 'assets/css/stakingkiwi.css'; // Import the CSS file
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
-import { Connection, clusterApiUrl } from "@solana/web3.js";
+
 
 function Solana() {
   const [version, setVersion] = useState(null); // State to store the version data

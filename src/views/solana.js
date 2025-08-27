@@ -15,31 +15,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useEffect, useState } from "react";
-import 'assets/css/stakingkiwi.css'; // Import the CSS file
+import React, { useEffect } from "react";
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
 
 function Solana() {
-  const [version, setVersion] = useState(null); // State to store the version data
-
-  useEffect(() => {
-    // Function to fetch Solana data
-    const fetchSolanaData = async () => {
-      try {
-        const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-        const versionData = await connection.getVoteAccounts();
-        setVersion(versionData); // Update the state with the fetched data
-        console.log(versionData); // Log the data to the console
-      } catch (error) {
-        console.error("Error fetching Solana data:", error);
-      }
-    };
-
-    fetchSolanaData(); // Call the function to fetch data
-  }, []); // Empty dependency array ensures this effect runs only once after initial render
-
   return (
     <React.Fragment>
       <div className="content">
@@ -50,19 +31,11 @@ function Solana() {
                 <div className="text-center">
                   <h5 className="title">Solana Staking</h5>
                   <p className="category">
-                    big penis*Please note we are still in the process of integrating our own interface. Your assets are safe.
+                    *This Section is UNDER CONSTUCTION!
                   </p>
                 </div>
               </CardHeader>
-              <CardBody>
-                <div>
-                  <h6>Solana Version Data:</h6>
-                  {version ? (
-                    <pre>{JSON.stringify(version, null, 2)}</pre> // Display the version data
-                  ) : (
-                    <p>Loading...</p> // Show a loading message while data is being fetched
-                  )}
-                </div>
+              <CardBody className="all-icons">
               </CardBody>
             </Card>
           </Col>

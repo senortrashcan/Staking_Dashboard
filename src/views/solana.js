@@ -16,35 +16,29 @@
 
 */
 import React, { useEffect, useState } from "react";
-import 'assets/css/stakingkiwi.css';
+import 'assets/css/stakingkiwi.css'; // Import the CSS file
+// reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
+import { Connection, clusterApiUrl } from "@solana/web3.js";
 
 function Solana() {
-  const [chainInfo, setChainInfo] = useState(null);
-  const [error, setError] = useState(null);
+  const [version, setVersion] = useState(null); // State to store the version data
 
   useEffect(() => {
-    const fetchSolscanData = async () => {
+    // Function to fetch Solana data
+    const fetchSolanaData = async () => {
       try {
-        const requestOptions = {
-          method: "GET",
-          headers: {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE3NTU1NzgyNzgyNzAsImVtYWlsIjoiaG5sOTMyNEBnbWFpbC5jb20iLCJhY3Rpb24iOiJ0b2tlbi1hcGkiLCJhcGlWZXJzaW9uIjoidjIiLCJpYXQiOjE3NTU1NzgyNzh9.vwUQFT0CpjSI2tx3Lp2sGCSG0Ffurg4a8da6f2RZye0"}
-        };
-
-        const res = await fetch("https://public-api.solscan.io/chaininfo", requestOptions);
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
-        const data = await res.json();
-        setChainInfo(data);
-        console.log("Solscan chain info:", data);
-      } catch (err) {
-        console.error("Error fetching Solscan data:", err);
-        setError(err.message);
+        const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+        const versionData = await connection.getVoteAccounts();
+        setVersion(versionData); // Update the state with the fetched data
+        console.log(versionData); // Log the data to the console
+      } catch (error) {
+        console.error("Error fetching Solana data:", error);
       }
     };
 
-    fetchSolscanData();
-  }, []);
+    fetchSolanaData(); // Call the function to fetch data
+  }, []); // Empty dependency array ensures this effect runs only once after initial render
 
   return (
     <React.Fragment>
@@ -54,16 +48,21 @@ function Solana() {
             <Card>
               <CardHeader>
                 <div className="text-center">
-                  <h5 className="title">Solana Chain Info (via Solscan API)</h5>
+                  <h5 className="title">Solana Staking</h5>
+                  <p className="category">
+                    big penis*Please note we are still in the process of integrating our own interface. Your assets are safe.
+                  </p>
                 </div>
               </CardHeader>
               <CardBody>
-                {error && <p style={{ color: "red" }}>Error: {error}</p>}
-                {chainInfo ? (
-                  <pre>{JSON.stringify(chainInfo, null, 2)}</pre>
-                ) : (
-                  <p>Loading...</p>
-                )}
+                <div>
+                  <h6>Solana Version Data:</h6>
+                  {version ? (
+                    <pre>{JSON.stringify(version, null, 2)}</pre> // Display the version data
+                  ) : (
+                    <p>Loading...</p> // Show a loading message while data is being fetched
+                  )}
+                </div>
               </CardBody>
             </Card>
           </Col>
